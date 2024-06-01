@@ -1,2 +1,0 @@
-Hello Friends
- Hi I am using Fs module of NodeJS
