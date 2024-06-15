@@ -3,6 +3,7 @@ const express = require('express')
 require('dotenv').config()
 const notesRouter = require('./Routes/notesRoutes')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 // Creating Express App
 const app = express()
@@ -16,6 +17,10 @@ const DB_URL = process.env.MONGODB_URL
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/api/notes",notesRouter)
+
+app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
+
+app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
 
 // Home Route
 app.get("/", (req,res)=>{
