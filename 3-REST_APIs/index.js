@@ -18,9 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/api/notes",notesRouter)
 
-app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
-
-app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
+app.use(cors())
 
 // Home Route
 app.get("/", (req,res)=>{
